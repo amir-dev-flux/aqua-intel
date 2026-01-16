@@ -20,8 +20,23 @@ split = int(len(df)*0.8)
 X_train, X_test = X.iloc[:split], X.iloc[split:]
 y_train, y_test = y.iloc[:split], y.iloc[split:]
 
-model = train_model(X_train, y_train)
-mae, rmse, preds = evaluate(model, X_test, y_test)
+from src.model import train_baselines, evaluate
 
-print("MAE:", mae)
-print("RMSE:", rmse)
+models = train_baselines(X_train, y_train)
+
+import pandas as pd
+
+results = []
+
+for name, model in models.items():
+    mae, rmse, _ = evaluate(model, X_test, y_test)
+    results.append({
+        "Model": name,
+        "MAE": mae,
+        "RMSE": rmse
+    })
+
+results_df = pd.DataFrame(results)
+print(results_df)
+
+results_df.to_csv("experiments_results.csv", index=False)
