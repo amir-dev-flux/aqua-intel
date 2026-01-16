@@ -108,26 +108,6 @@ The web app allows users to:
 
 ---
 
-## 🧩 Project Structure
-
-aqua-intel/
-│
-├── app.py # Streamlit web app
-├── src/
-│ ├── data.py # Data loading
-│ ├── features.py # Feature engineering (ET₀ + lags)
-│ ├── model.py # ML models and evaluation
-│ └── predict.py # Irrigation recommendation logic
-│
-├── data/ # Climate dataset
-├── notebooks/ # Exploratory work
-├── test_pipeline.py # Experiments & evaluation
-├── plot_results.py # Visualization
-├── requirements.txt
-└── README.md
-
----
-
 ## 🎯 Why This Project Matters
 
 This is not a toy ML project.
